@@ -1,0 +1,127 @@
+        <div class="container-fluid">
+            <!-- App Container -->
+            <div class="app">                
+                <!-- Row -->
+                <div class="row main-content">
+                    <!-- Left Column -->
+                    <div class="col-lg-4">
+                        <div class="left-side">
+                            <!-- Input City Name -->
+                            <form action="/weather" method="GET">
+                                <div class="form-group">
+                                    <input type="text" name="city" placeholder="Enter city name" class="form-control inputData" placeholder="Dehradun" value = {{weather.city}}>
+                                    <button class="submitBtn" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                                </div>
+                            </form>
+
+
+                            <!-- Today Weather Sumamry -->
+                            <div class="weather-summary">
+                                <div class="weather-img">
+                                   <img src="https://openweathermap.org/img/wn/{{weather.icon}}.png" alt="Weather Icon">
+                                   
+                                </div>
+                                <div class="temperature">
+                                    <p><span class="value">{{weather.temp}}</span>&deg; <span class="unit-format">C</span></p>
+                                    <p class="weathertext">{{weather.description}}</p>
+                                </div>
+                                <hr>
+                                <div class="date-info">
+                                    <p class="date">{{currentDate}}</p>
+                                    <p class="time">{{currentDayName}}, {{currentTime}}</p>
+                                </div>
+                                <div class="location-info">
+                                    <p class="location">{{weather.city}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Right Column -->
+                    <div class="col-lg-8">
+                        <div class="right-side">
+                            <div class="option">
+                                <span class="today active">Today</span>
+                            </div>
+
+                            <!-- Row 1 -->
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <div class="weather-info-box">
+                                        <p class="title">Wind</p>
+                                        <p class="value"><span class="wind">{{weather.wind}}</span> m/sec</p>
+                                        <p class="wind-direction">{{weather.windDirection}}</p>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="weather-info-box">
+                                        <p class="title">Humidity</p>
+                                        <p class="value"><span class="humidity">{{weather.humidity}}</span> <span class="humidity-unit">%</span></p>
+                                        <p>&nbsp;</p>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="weather-info-box">
+                                        <p class="title">Real Feel</p>
+                                        <p class="value "><span class="real-feel">{{weather.feels_like}}</span>&deg; C</span></p>
+                                        <p>&nbsp;</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Row 2 -->
+                            <div class="row mt">
+                                
+                                <div class="col-lg-4">
+                                    <div class="weather-info-box">
+                                        <p class="title">Pressure</p>
+                                        <p class="value"><span class="pressure">{{weather.pressure}}</span> <span class="pressure-unit">mbbar</span></p>
+                                        <p class="pressureTend">Rising</p>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="weather-info-box">
+                                        <p class="title">Temperature History</p>
+                                        <p class="value" style="font-size: 24px;"><i class="fa-solid fa-up-long" style="color:#fcacac"></i> <span class="HiTem">{{weather.temp_max}}</span>&deg; C</span></p>
+                                        <p class="value" style="font-size: 24px;"><i class="fa-solid fa-down-long" style="color:#b0ffd5"></i> <span class="LowTem">{{weather.temp_min}}</span>&deg; C</span></p>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="weather-info-box">
+                                        <p class="title">Sun</p>
+                                        <p class="value" style="font-size: 24px;">
+                                            <span style="font-size: 16px;">Rise</span> <span class="sunRise">{{weather.sunrise}}</span>
+                                        </p>
+                                        <p class="value" style="font-size: 24px;">
+                                            <span style="font-size: 16px;">Set</span> <span class="sunSet">{{weather.sunset}}</span>
+                                        </p>
+                                    </div>
+                                </div>
+                                
+                            </div> 
+                              <!-- Row 3 -->
+                            <div class="row mt">
+                                
+                                <div class="col-lg-4">
+                                   <div class="weather-info-box">
+                                        <p class="title">Rain</p>
+                                        <p class="value"><span class="changeOfRain">0.1</span>mm</p>
+                                        <p class="changeOfRainSituation">1 hour</p>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                   <div class="weather-info-box">
+                                        <p class="title">Snow</p>
+                                        <p class="value"><span class="changeOfRain">2</span>%</p>
+                                        <p class="changeOfRainSituation">1 hour</p>
+                                    </div>
+                                </div>
+                                
+                                
+                            </div>                           
+
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
