@@ -12,7 +12,7 @@ async function getWeatherData(city){
     }
     catch(err){
         console.log("Error fetching weather data:", err);
-        throw err;
+        throw err;  
 
     }
 }

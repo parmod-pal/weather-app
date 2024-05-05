@@ -1,8 +1,7 @@
 const  { getWeatherData }  = require('../models/weather.model');
 
-async function httpGetWeatherData(req,res){    
-    try{
-        const city = req.query.city ? req.query.city : 'dehradun' ;
+async function httpGetWeatherData(req,res){
+        let city = (req.query.city) ? req.query.city : 'dehradun' ;
         
         const weatherApiData = await getWeatherData(city);
 
@@ -20,7 +19,11 @@ async function httpGetWeatherData(req,res){
         humidity:weatherApiData.weather.main.humidity,
         wind:weatherApiData.weather.wind.speed,
         windDirection : getWindDirection(weatherApiData.weather.wind.deg),
+        rain : ( weatherApiData.weather.rain) ?  weatherApiData.weather.rain['1h'] : 0,
+        snow : ( weatherApiData.weather.snow) ?  weatherApiData.weather.snow['1h'] : 0,
+        clouds : weatherApiData.weather.clouds['all']
     }
+    //return res.status(200).json(weather);
     const error = '';
     const currentDate = new Date().toLocaleDateString('en-US', {
         year: 'numeric',
@@ -36,13 +39,8 @@ async function httpGetWeatherData(req,res){
     const currentDayIndex = new Date().getDay();
     const currentDayName = days[currentDayIndex];
     res.render('weather', { weather, currentDate,currentTime,currentDayName,error });
-    //res.status(200).json(weatherApiData);
-
-    }catch(error){
-        res.render('weather', { weather: null, error: 'Something went wrong. Please try again later.' });
-
-    }
     
+   // res.status(200).json(weatherApiData);
     
 }
 

@@ -17,9 +17,7 @@ const weatherRouter = require('./routes/weather');
 
 app.use('/weather',weatherRouter);
 
-app.get('/',(req,res)=>{
-    res.render(path.join(__dirname,'..','views','weather'), { weather: null, error: null });
-}); 
+app.get('/',weatherRouter); 
 
 
 module.exports = app;

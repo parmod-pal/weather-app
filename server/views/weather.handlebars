@@ -42,6 +42,7 @@
                             <div class="option">
                                 <span class="today active">Today</span>
                             </div>
+                            {{#if weather.city}}
 
                             <!-- Row 1 -->
                             <div class="row">
@@ -104,20 +105,31 @@
                                 <div class="col-lg-4">
                                    <div class="weather-info-box">
                                         <p class="title">Rain</p>
-                                        <p class="value"><span class="changeOfRain">0.1</span>mm</p>
+                                        <p class="value"><span class="changeOfRain">{{weather.rain}}</span> mm</p>
                                         <p class="changeOfRainSituation">1 hour</p>
                                     </div>
                                 </div>
                                 <div class="col-lg-4">
                                    <div class="weather-info-box">
                                         <p class="title">Snow</p>
-                                        <p class="value"><span class="changeOfRain">2</span>%</p>
+                                        <p class="value"><span class="changeOfRain">{{weather.snow}}</span> mm</p>
                                         <p class="changeOfRainSituation">1 hour</p>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-4">
+                                    <div class="weather-info-box">
+                                        <p class="title">Clouds</p>
+                                        <p class="value"><span class="humidity">{{weather.clouds}}</span> <span class="humidity-unit">%</span></p>
+                                        <p>&nbsp;</p>
                                     </div>
                                 </div>
                                 
                                 
-                            </div>                           
+                            </div> 
+                            {{else}}
+                            <div>error</div> 
+                            {{/if}}                         
 
                             
                         </div>
